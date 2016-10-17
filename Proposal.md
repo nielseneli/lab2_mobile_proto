@@ -11,11 +11,14 @@ Erica Lee and Louise Nielsen
 ##### MVP
 - Stores locations
 - Adds current location to map
+- Can view previously saved location information
+- Adds past locations
 
 ##### Stretch Goals
-- Adds past locations
 - Add photos from Google Photos albums
+- Add separate fragment for viewing previous locations
 - Login information/persistent across machines
+- Settings fragment
 
 ### Work Flow
 - Features integrated through pull request
@@ -23,4 +26,4 @@ Erica Lee and Louise Nielsen
 - Approximately even split of features/time
 
 ### Where Are We in a Week (20 October)?
-- MVP complete
+- works with Android GPS API
