@@ -8,8 +8,10 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.PendingResult;
@@ -18,7 +20,7 @@ import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.location.LocationSettingsRequest;
 import com.google.android.gms.location.LocationSettingsResult;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements GoogleApiClient.ConnectionCallbacks {
 
 
     private GoogleApiClient mGoogleApiClient;
@@ -26,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView mLatitudeText;
     private TextView mLongitudeText;
     private LocationRequest mLocationRequest;
+    private String TAG = "asdf"; // "MainActivity.java";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -105,9 +108,18 @@ public class MainActivity extends AppCompatActivity {
 //    });
 
 //    @Override
+
+
+
+    protected void onStart() {
+        mGoogleApiClient.connect();
+        super.onStart();
+    }
+    @Override
     public void onConnected(Bundle connectionHint) {
         if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED){
+            Log.d(TAG, "permission not grated");
             // TODO: Consider calling
             //    ActivityCompat#requestPermissions
             // here to request the missing permissions, and then overriding
@@ -122,17 +134,18 @@ public class MainActivity extends AppCompatActivity {
             mLatitudeText.setText(String.valueOf(mLastLocation.getLatitude()));
             mLongitudeText.setText(String.valueOf(mLastLocation.getLongitude()));
         }
-    }
-
-
-    protected void onStart() {
-        mGoogleApiClient.connect();
-        super.onStart();
+        Log.d(TAG, mLatitudeText.getText().toString());
+        mLatitudeText = (TextView) findViewById(R.id.current_location);
     }
 
     protected void onStop() {
         mGoogleApiClient.disconnect();
         super.onStop();
+    }
+
+    @Override
+    public void onConnectionSuspended(int i) {
+        Toast.makeText(this.getApplicationContext(), "suspended", Toast.LENGTH_LONG).show();
     }
 
 }
