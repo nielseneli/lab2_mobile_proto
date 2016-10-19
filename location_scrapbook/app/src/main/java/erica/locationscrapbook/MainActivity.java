@@ -133,9 +133,11 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
         if (mLastLocation != null) {
             mLatitudeText.setText(String.valueOf(mLastLocation.getLatitude()));
             mLongitudeText.setText(String.valueOf(mLastLocation.getLongitude()));
+        } else {
+            mLatitudeText = (TextView) findViewById(R.id.current_location);
         }
         Log.d(TAG, mLatitudeText.getText().toString());
-        mLatitudeText = (TextView) findViewById(R.id.current_location);
+
     }
 
     protected void onStop() {
