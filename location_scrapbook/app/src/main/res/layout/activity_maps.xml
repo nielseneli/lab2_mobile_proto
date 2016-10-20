@@ -27,12 +27,5 @@
         android:layout_height="match_parent"
         tools:context="erica.locationscrapbook.MapsActivity" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="current location"
-        android:id="@+id/current_location"
-        android:layout_gravity="center" />
 
 </FrameLayout>
