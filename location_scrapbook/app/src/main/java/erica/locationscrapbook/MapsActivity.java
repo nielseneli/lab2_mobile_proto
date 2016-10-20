@@ -14,6 +14,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -174,15 +175,27 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 input.setTitle("Input");
                 input.setCancelable(false);
 
+                LinearLayout layout = new LinearLayout(MapsActivity.this);
+                layout.setOrientation(LinearLayout.VERTICAL);
+
                 final EditText title = new EditText(MapsActivity.this);
+                title.setHint("Title");
+                title.setText(marker.getTitle());
+                layout.addView(title);
+
                 final EditText description = new EditText(MapsActivity.this);
-                title.setHint("Where is this?");
                 description.setHint("Description");
+                description.setText(marker.getSnippet());
+                layout.addView(description);
+
+                input.setView(layout);
+
 
                 input.setPositiveButton("Done", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         marker.setTitle(title.getText().toString());
                         marker.setSnippet(description.getText().toString());
+                        marker.hideInfoWindow();
                     }
                 });
 
