@@ -1,10 +1,12 @@
 package erica.locationscrapbook;
 
-import android.*;
 import android.Manifest;
 import android.content.DialogInterface;
 import android.content.pm.PackageManager;
+import android.location.Address;
+import android.location.Geocoder;
 import android.location.Location;
+import android.nfc.Tag;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
@@ -12,10 +14,10 @@ import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -27,12 +29,15 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-import java.util.ArrayList;
+import java.io.IOException;
+import java.util.List;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener, LocationListener {
@@ -45,8 +50,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private double mLatitudeText;
     private double mLongitudeText;
+    private Geocoder geoCoder;
+    private List<Address> addresses = null;
 
     private String TAG = "asdf"; // "MapsActivity.java"
+
+    @BindView(R.id.addCurrent) Button addCurrent;
+
+
 
 
 
@@ -55,6 +66,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
+        ButterKnife.bind(MapsActivity.this);
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
@@ -86,11 +98,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
             if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION)
                     != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this,
-                    android.Manifest.permission.ACCESS_COARSE_LOCATION)!= PackageManager.PERMISSION_GRANTED) {
+                    android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
 
                 Toast.makeText(MapsActivity.this, "We need permission to access your location!", Toast.LENGTH_SHORT).show();
 
-                int permissionCheck =  0;
+                int permissionCheck = 0;
 
                 ActivityCompat.requestPermissions(MapsActivity.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, permissionCheck);
 
@@ -103,31 +115,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 // for ActivityCompat#requestPermissions for more details.
 
 
-
                 return;
             } else {
                 mMap.setMyLocationEnabled(true);
             }
-
-//            Location myLocation = mMap.getLocation();
-//            if (myLocation != null) {
-//                LatLng myLatLng = new LatLng(myLocation.getLatitude(),myLocation.getLongitude());
-//                mMap.moveCamera(CameraUpdateFactory.newLatLng(myLatLng));
-//
-//            }
         }
-
-
-
-        // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        LatLng someplace = new LatLng(-35, 150);
-
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.addMarker(new MarkerOptions().position(someplace).title("someplace"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
     }
-
 
     protected void onStart() {
         mGoogleApiClient.connect();
@@ -162,11 +155,62 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             mLongitudeText = mLastLocation.getLongitude();
         }
 
-        // Add a marker in Sydney and move the camera
-        LatLng current_location = new LatLng(mLatitudeText, mLongitudeText);
+
+        final LatLng current_location = new LatLng(mLatitudeText, mLongitudeText);
+
+        addCurrent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                AlertDialog.Builder input = new AlertDialog.Builder(MapsActivity.this);
+                input.setTitle("Input");
+                input.setCancelable(false);
+
+                LinearLayout layout = new LinearLayout(MapsActivity.this);
+                layout.setOrientation(LinearLayout.VERTICAL);
+
+                final EditText location = new EditText(MapsActivity.this);
+                location.setHint("Location");
+                layout.addView(location);
+
+                final CheckBox useCurrent = new CheckBox(MapsActivity.this);
+                useCurrent.setText("Use Current Location");
+                layout.addView(useCurrent);
+
+                input.setView(layout);
 
 
-        marker = mMap.addMarker(new MarkerOptions().position(current_location).title("Is this your current location?").snippet("current"));
+                input.setPositiveButton("Done", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        if (useCurrent.isChecked()) {
+                            marker = mMap.addMarker(new MarkerOptions().position(current_location).title("Is this your current location?").snippet("current"));
+                        } else {
+                            try{
+//                                addresses = geoCoder.getFromLocationName(location.getText().toString(), 1);
+                                Log.d(TAG, geoCoder.getFromLocationName(location.getText().toString(), 1).toString() );
+//                                Address add = addresses.get(0);
+//                                String locality = add.getLocality();
+                            } catch(IOException ie) {
+                                ie.printStackTrace();
+                            }
+                        }
+                    }
+                });
+
+                input.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.cancel();
+                    }
+                });
+
+                AlertDialog userInput = input.create();
+                userInput.show();
+
+            }
+        });
+
+
 
         mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
             @Override
