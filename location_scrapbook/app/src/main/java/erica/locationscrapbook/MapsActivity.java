@@ -12,6 +12,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
+import android.text.InputType;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -46,7 +47,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private GoogleApiClient mGoogleApiClient;
     private LocationRequest mLocationRequest;
     private Location mLastLocation;
+    private String locLat;
+    private String locLon;
     private Marker marker;
+    private Marker past_marker;
 
     private double mLatitudeText;
     private double mLongitudeText;
@@ -71,6 +75,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+        geoCoder = new Geocoder(this);
         // Create an instance of GoogleAPIClient.
 
         mGoogleApiClient = new GoogleApiClient.Builder(this)
@@ -170,6 +176,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 layout.setOrientation(LinearLayout.VERTICAL);
 
                 final EditText location = new EditText(MapsActivity.this);
+                location.setInputType(InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS);
+
                 location.setHint("Location");
                 layout.addView(location);
 
@@ -185,13 +193,21 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         if (useCurrent.isChecked()) {
                             marker = mMap.addMarker(new MarkerOptions().position(current_location).title("Is this your current location?").snippet("current"));
                         } else {
-                            try{
-//                                addresses = geoCoder.getFromLocationName(location.getText().toString(), 1);
-                                Log.d(TAG, geoCoder.getFromLocationName(location.getText().toString(), 1).toString() );
-//                                Address add = addresses.get(0);
-//                                String locality = add.getLocality();
-                            } catch(IOException ie) {
-                                ie.printStackTrace();
+                            try {
+                                List<Address> geoResults = geoCoder.getFromLocationName(location.getText().toString(), 1);
+                                while (geoResults.size()==0) {
+                                    geoResults = geoCoder.getFromLocationName(location.getText().toString(), 1);
+
+                                }
+                                if (geoResults.size()>0) {
+                                    Address addr = geoResults.get(0);
+                                    LatLng past_location = new LatLng(addr.getLatitude(), addr.getLongitude());
+                                    past_marker = mMap.addMarker(new MarkerOptions().position(past_location).title("Is this the right location?").snippet("past"));
+                                    Log.d(TAG,addr.toString());
+
+                                }
+                            } catch (Exception e) {
+                                System.out.print(e.getMessage());
                             }
                         }
                     }
