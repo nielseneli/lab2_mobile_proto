@@ -169,7 +169,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             public void onClick(View view) {
 
                 AlertDialog.Builder input = new AlertDialog.Builder(MapsActivity.this);
-                input.setTitle("Input");
+                input.setTitle(R.string.new_location_dialog_title);
                 input.setCancelable(false);
 
                 LinearLayout layout = new LinearLayout(MapsActivity.this);
@@ -182,7 +182,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 layout.addView(location);
 
                 final CheckBox useCurrent = new CheckBox(MapsActivity.this);
-                useCurrent.setText("Use Current Location");
+                useCurrent.setText("Use current location");
                 layout.addView(useCurrent);
 
                 input.setView(layout);
