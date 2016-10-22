@@ -13,11 +13,12 @@
 
 
     <Button
-        android:id="@+id/attach_button"
+        android:id="@+id/addCurrent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:text="Add Current Location"/>
+
 
     <fragment xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
@@ -27,12 +28,5 @@
         android:layout_height="match_parent"
         tools:context="erica.locationscrapbook.MapsActivity" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="current location"
-        android:id="@+id/current_location"
-        android:layout_gravity="center" />
 
 </FrameLayout>
