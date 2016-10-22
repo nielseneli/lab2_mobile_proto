@@ -34,7 +34,6 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-import java.io.IOException;
 import java.util.List;
 
 import butterknife.BindView;
@@ -61,11 +60,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     @BindView(R.id.addCurrent) Button addCurrent;
 
-
-
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,8 +71,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mapFragment.getMapAsync(this);
 
         geoCoder = new Geocoder(this);
-        // Create an instance of GoogleAPIClient.
 
+        // Create an instance of GoogleAPIClient.
         mGoogleApiClient = new GoogleApiClient.Builder(this)
                 .addConnectionCallbacks(this)
                 .addOnConnectionFailedListener(this)
