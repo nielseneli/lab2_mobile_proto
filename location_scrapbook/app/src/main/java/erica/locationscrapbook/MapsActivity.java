@@ -158,6 +158,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         final LatLng current_location = new LatLng(mLatitudeText, mLongitudeText);
 
+
         addCurrent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -185,7 +186,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 input.setPositiveButton("Done", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         if (useCurrent.isChecked()) {
-                            marker = mMap.addMarker(new MarkerOptions().position(current_location).title("Is this your current location?").snippet("current"));
+                            mMap.addMarker(new MarkerOptions().position(current_location).title("Is this your current location?").snippet("current"));
                         } else {
                             try {
                                 List<Address> geoResults = geoCoder.getFromLocationName(location.getText().toString(), 1);
@@ -196,7 +197,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                                 if (geoResults.size()>0) {
                                     Address addr = geoResults.get(0);
                                     LatLng past_location = new LatLng(addr.getLatitude(), addr.getLongitude());
-                                    past_marker = mMap.addMarker(new MarkerOptions().position(past_location).title("Is this the right location?").snippet("past"));
+                                    mMap.addMarker(new MarkerOptions().position(past_location).title("Is this the right location?").snippet("past"));
                                     Log.d(TAG,addr.toString());
 
                                 }

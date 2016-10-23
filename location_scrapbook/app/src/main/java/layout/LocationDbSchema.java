@@ -10,15 +10,19 @@ public class LocationDbSchema extends SQLiteOpenHelper {
     public static final String ID_TITLE = "ID";
     public static final String LOCATION_TITLE = "Location";
     public static final String DESCRIPTION_TITLE = "Description";
+    public static final String LAT_TITLE = "Latitude";
+    public static final String LON_TITLE = "Longitude";
 
     private static final String TEXT_TYPE = " TEXT";
-    private static final String STATUS_TYPE = " INTEGER";
+    private static final String DOUBLE_TYPE = " DOUBLE";
     private static final String COMMA_SEP = ",";
     private static final String SQL_CREATE_ENTRIES =
             "CREATE TABLE " + TABLE_NAME + " (" +
                     ID_TITLE + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+                    LAT_TITLE + DOUBLE_TYPE + COMMA_SEP +
+                    LON_TITLE + DOUBLE_TYPE + COMMA_SEP +
                     LOCATION_TITLE + TEXT_TYPE + COMMA_SEP +
-                    DESCRIPTION_TITLE + STATUS_TYPE + " )";
+                    DESCRIPTION_TITLE + TEXT_TYPE + " )";
 
     private static final String SQL_DELETE_ENTRIES =
             "DROP TABLE IF EXISTS " + TABLE_NAME;
