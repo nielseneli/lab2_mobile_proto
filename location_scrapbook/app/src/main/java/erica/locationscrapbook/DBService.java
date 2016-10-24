@@ -5,10 +5,8 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
-import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.ArrayList;
 import layout.LocationDbSchema;
@@ -37,10 +35,28 @@ public class DBService {
 
     public void deleteLoc (Marker marker) {
         SQLiteDatabase sql = db.getWritableDatabase();
-        String selection = LocationDbSchema.ID_TITLE + " =?";
-        String[] selectionArgs = {String.valueOf(marker.getId())};
-        sql.delete(LocationDbSchema.TABLE_NAME, selection, selectionArgs);
-        sql.close();
+
+        StringBuilder sb = new StringBuilder();
+        sb.append("delete from ");
+        sb.append(LocationDbSchema.TABLE_NAME);
+        sb.append(" where ");
+        sb.append(LocationDbSchema.LAT_TITLE);
+        sb.append("=");
+        sb.append(marker.getPosition().latitude);
+        sb.append(" and ");
+        sb.append(LocationDbSchema.LON_TITLE);
+        sb.append("=");
+        sb.append(marker.getPosition().longitude);
+
+        Cursor c = sql.rawQuery(sb.toString(), null);
+
+        c.moveToFirst();
+        c.close();
+//        SQLiteDatabase sql = db.getWritableDatabase();
+//        String selection = LocationDbSchema.ID_TITLE + " =?";
+//        String[] selectionArgs = {String.valueOf(marker.getId())};
+//        sql.delete(LocationDbSchema.TABLE_NAME, selection, selectionArgs);
+//        sql.close();
     }
 
 

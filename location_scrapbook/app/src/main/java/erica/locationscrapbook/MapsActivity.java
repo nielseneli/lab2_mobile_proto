@@ -196,7 +196,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                                     Address addr = geoResults.get(0);
                                     LatLng past_location = new LatLng(addr.getLatitude(), addr.getLongitude());
 
-                                    Marker pastLoc = mMap.addMarker(new MarkerOptions().position(past_location).title("Is this the right location?").snippet("past"));
+                                    Marker pastLoc = mMap.addMarker(new MarkerOptions().position(past_location).title("Location Name").snippet("Description"));
                                     service.addLoc(pastLoc);
                                 }
                             } catch (Exception e) {
@@ -252,6 +252,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
                         service.updateLoc(marker);
 
+                    }
+                });
+
+                input.setNeutralButton("Delete", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        marker.remove();
+
+                        service.deleteLoc(marker);
                     }
                 });
 
