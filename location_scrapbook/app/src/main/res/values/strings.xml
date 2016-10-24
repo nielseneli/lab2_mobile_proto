@@ -2,6 +2,4 @@
     <string name="app_name">LocationScrapbook</string>
     <string name="title_activity_maps">Map</string>
     <string name="title_activity_main">MainActivity</string>
-    <string name="add_location">Add a location</string>
-    <string name="new_location_dialog_title">Name or address of location</string>
 </resources>
