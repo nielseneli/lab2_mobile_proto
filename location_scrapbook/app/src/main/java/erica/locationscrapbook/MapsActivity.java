@@ -34,7 +34,8 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-import java.io.IOException;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -59,12 +60,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private String TAG = "asdf"; // "MapsActivity.java"
 
+    private DBService service;
+
     @BindView(R.id.addCurrent) Button addCurrent;
-
-
-
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,10 +73,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
-
+        service = new DBService(this);
         geoCoder = new Geocoder(this);
-        // Create an instance of GoogleAPIClient.
 
+        // Create an instance of GoogleAPIClient.
         mGoogleApiClient = new GoogleApiClient.Builder(this)
                 .addConnectionCallbacks(this)
                 .addOnConnectionFailedListener(this)
@@ -112,15 +110,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
                 ActivityCompat.requestPermissions(MapsActivity.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, permissionCheck);
 
-                // TODO: Consider calling
-                //    ActivityCompat#requestPermissions
-                // here to request the missing permissions, and then overriding
-                //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-                //                                          int[] grantResults)
-                // to handle the case where the user grants the permission. See the documentation
-                // for ActivityCompat#requestPermissions for more details.
-
-
                 return;
             } else {
                 mMap.setMyLocationEnabled(true);
@@ -145,14 +134,19 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED) {
             Log.d(TAG, "permission not granted");
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
             return;
+        }
+
+        if (service.getAll() != null) {
+            ArrayList<erica.locationscrapbook.Location> allLoc = service.getAll();
+            for (int i = 0; i < allLoc.size(); i++) {
+                erica.locationscrapbook.Location markerLocation = allLoc.get(i);
+
+                mMap.addMarker(new MarkerOptions().position(markerLocation.getLatLng())
+                        .title(markerLocation.getName())
+                        .snippet(markerLocation.getDescription()));
+
+            }
         }
 
         mLastLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
@@ -163,6 +157,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
 
         final LatLng current_location = new LatLng(mLatitudeText, mLongitudeText);
+
 
         addCurrent.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -191,7 +186,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 input.setPositiveButton("Done", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         if (useCurrent.isChecked()) {
-                            marker = mMap.addMarker(new MarkerOptions().position(current_location).title("Is this your current location?").snippet("current"));
+                            Marker currentLoc = mMap.addMarker(new MarkerOptions().position(current_location).title("Is this your current location?").snippet("current"));
+                            service.addLoc(currentLoc);
                         } else {
                             try {
                                 List<Address> geoResults = geoCoder.getFromLocationName(location.getText().toString(), 1);
@@ -202,9 +198,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                                 if (geoResults.size()>0) {
                                     Address addr = geoResults.get(0);
                                     LatLng past_location = new LatLng(addr.getLatitude(), addr.getLongitude());
-                                    past_marker = mMap.addMarker(new MarkerOptions().position(past_location).title("Is this the right location?").snippet("past"));
-                                    Log.d(TAG,addr.toString());
-
+                                    Marker pastLoc = mMap.addMarker(new MarkerOptions().position(past_location).title("Is this the right location?").snippet("past"));
+                                    service.addLoc(pastLoc);
                                 }
                             } catch (Exception e) {
                                 System.out.print(e.getMessage());
@@ -256,6 +251,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         marker.setTitle(title.getText().toString());
                         marker.setSnippet(description.getText().toString());
                         marker.hideInfoWindow();
+                        service.updateLoc(marker);
                     }
                 });
 
