@@ -183,7 +183,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 input.setPositiveButton("Done", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         if (useCurrent.isChecked()) {
-                            Marker currentLoc = mMap.addMarker(new MarkerOptions().position(current_location).title("Is this your current location?").snippet("current"));
+                            Marker currentLoc = mMap.addMarker(new MarkerOptions().position(current_location).title("Current Location").snippet("Description"));
                             service.addLoc(currentLoc);
                         } else {
                             try {

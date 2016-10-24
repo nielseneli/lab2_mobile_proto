@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Sun Oct 23 22:40:47 EDT 2016
+#Sun Oct 23 23:03:37 EDT 2016
 20.base=/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/res/resources-debug.ap_
 143.base=/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/res/resources-debug.ap_
 493.base=/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/res/resources-debug.ap_
