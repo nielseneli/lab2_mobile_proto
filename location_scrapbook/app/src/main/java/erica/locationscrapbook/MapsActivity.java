@@ -34,7 +34,8 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-import java.io.IOException;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -52,17 +53,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private double mLongitudeText;
     private Geocoder geoCoder;
     private List<Address> addresses = null;
+    private DBService service;
+
 
     // Debugging tag
     private String TAG = "MapsActivity.java";
 
     // Butterknifing
     @BindView(R.id.addCurrent) Button addCurrent;
-
-
-
-
-
+    ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,6 +75,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+        service = new DBService(this);
         geoCoder = new Geocoder(this);
 
         // Create an instance of GoogleAPIClient.
@@ -85,7 +86,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .addApi(LocationServices.API)
                 .build();
     }
-
 
     /**
      * Manipulates the map once available.
@@ -109,6 +109,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 int permissionCheck = 0;
 
                 ActivityCompat.requestPermissions(MapsActivity.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, permissionCheck);
+
+                return;
+
             } else {
                 mMap.setMyLocationEnabled(true);
             }
@@ -135,6 +138,18 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             return;
         }
 
+        if (service.getAll() != null) {
+            ArrayList<erica.locationscrapbook.Location> allLoc = service.getAll();
+            for (int i = 0; i < allLoc.size(); i++) {
+                erica.locationscrapbook.Location markerLocation = allLoc.get(i);
+
+                mMap.addMarker(new MarkerOptions().position(markerLocation.getLatLng())
+                        .title(markerLocation.getName())
+                        .snippet(markerLocation.getDescription()));
+
+            }
+        }
+
         mLastLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
         if (mLastLocation != null) {
             mLatitudeText = mLastLocation.getLatitude();
@@ -143,6 +158,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
 
         final LatLng current_location = new LatLng(mLatitudeText, mLongitudeText);
+
 
         // add button onClickListener
         addCurrent.setOnClickListener(new View.OnClickListener() {
@@ -174,6 +190,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     public void onClick(DialogInterface dialog, int id) {
                         if (useCurrent.isChecked()) {
                             mMap.addMarker(new MarkerOptions().position(current_location).title("Is this your current location?").snippet("current"));
+
+                            Marker currentLoc = mMap.addMarker(new MarkerOptions().position(current_location).title("Is this your current location?").snippet("current"));
+                            service.addLoc(currentLoc);
                         } else {
                             try {
                                 List<Address> geoResults = geoCoder.getFromLocationName(location.getText().toString(), 1);
@@ -183,8 +202,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                                 if (geoResults.size()>0) {
                                     Address addr = geoResults.get(0);
                                     LatLng past_location = new LatLng(addr.getLatitude(), addr.getLongitude());
+
                                     mMap.addMarker(new MarkerOptions().position(past_location).title("Is this the right location?").snippet("past"));
-                                    Log.d(TAG,addr.toString());
+
+                                    Marker pastLoc = mMap.addMarker(new MarkerOptions().position(past_location).title("Is this the right location?").snippet("past"));
+                                    service.addLoc(pastLoc);
+
                                 }
                             } catch (Exception e) {
                                 System.out.print(e.getMessage());
@@ -236,6 +259,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         marker.setTitle(title.getText().toString());
                         marker.setSnippet(description.getText().toString());
                         marker.hideInfoWindow();
+                        service.updateLoc(marker);
                     }
                 });
 
