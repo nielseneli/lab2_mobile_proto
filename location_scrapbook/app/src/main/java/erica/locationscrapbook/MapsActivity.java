@@ -50,12 +50,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private double mLatitudeText;
     private double mLongitudeText;
     private Geocoder geoCoder;
-    private List<Address> addresses = null;
-
-    private String TAG = "asdf"; // "MapsActivity.java"
-
     private DBService service;
 
+    // Debugging tag
+    private String TAG = "MapsActivity.java";
+
+    // Butterknifing
     @BindView(R.id.addCurrent) Button addCurrent;
 
     @Override
@@ -67,6 +67,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
         service = new DBService(this);
         geoCoder = new Geocoder(this);
 
@@ -77,7 +78,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .addApi(LocationServices.API)
                 .build();
     }
-
 
     /**
      * Manipulates the map once available.
@@ -102,9 +102,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
                 int permissionCheck = 0;
 
-                ActivityCompat.requestPermissions(MapsActivity.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, permissionCheck);
+                ActivityCompat.requestPermissions(MapsActivity.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION,
+                        Manifest.permission.ACCESS_COARSE_LOCATION}, permissionCheck);
 
                 return;
+
             } else {
                 mMap.setMyLocationEnabled(true);
             }
@@ -148,14 +150,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             mLatitudeText = mLastLocation.getLatitude();
             mLongitudeText = mLastLocation.getLongitude();
         }
-
-
+        
         final LatLng current_location = new LatLng(mLatitudeText, mLongitudeText);
 
 
         addCurrent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                // make an alert dialog
 
                 AlertDialog.Builder input = new AlertDialog.Builder(MapsActivity.this);
                 input.setTitle("Input");
@@ -192,6 +195,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                                 if (geoResults.size()>0) {
                                     Address addr = geoResults.get(0);
                                     LatLng past_location = new LatLng(addr.getLatitude(), addr.getLongitude());
+
                                     Marker pastLoc = mMap.addMarker(new MarkerOptions().position(past_location).title("Is this the right location?").snippet("past"));
                                     service.addLoc(pastLoc);
                                 }
@@ -245,7 +249,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         marker.setTitle(title.getText().toString());
                         marker.setSnippet(description.getText().toString());
                         marker.hideInfoWindow();
+
                         service.updateLoc(marker);
+
                     }
                 });
 
@@ -258,8 +264,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
                 AlertDialog userInput = input.create();
                 userInput.show();
-
-
             }
         });
 

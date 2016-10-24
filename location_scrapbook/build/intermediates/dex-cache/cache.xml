@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
+        <dex dex="/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-24.2.1_1ffc64521f6182e1db00bf80afcf204b45b8e701.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
+        <dex dex="/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/pre-dexed/debug/com.android.support-support-media-compat-24.2.1_6d336ab0c3e5b874a58367a3fe485f4cf0a03b9a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/exploded-aar/com.android.support/design/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="e03f47f3d1017a093bb3239d4ec47c3447f40744">
+        <dex dex="/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/pre-dexed/debug/com.android.support-design-24.2.1_fe23671b17112878808a74de3c05e9adf9ed19a8.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tasks/9.6.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="4a36600281a648769411ef642c331851732bf29e">
+        <dex dex="/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-tasks-9.6.1_8871b0f46efc14ed94a422521697879d5ff93a93.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/erica/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/24.2.1/support-annotations-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="8de3aafecbdf98a61db6427f008f2d515bcd2544">
+        <dex dex="/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/pre-dexed/debug/support-annotations-24.2.1_81b97f5e243801120b11d24fe370acdeb1374073.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/9.6.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="eccaaa9ffa6bb4bfbd2e870f01aaf69655d353be">
+        <dex dex="/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-basement-9.6.1_ee6cbd159bbf07b6fe917d7d53867a932f807754.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="867dad63c33388ff8c7644b236579355036d075f">
+        <dex dex="/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_ff909b4b7af2436f0d1072a689dc0760591fe28a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="af7582c6b327449c6d32518e6a10307860b7b5d6">
+        <dex dex="/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-base-9.6.1_2077ca31d7e61f716abf368c9a05960c023ae1ca.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
+        <dex dex="/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/pre-dexed/debug/com.android.support-support-vector-drawable-24.2.1_52d22b8acaae5626dc117e84dcfba7d4670c2c54.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/exploded-aar/com.jakewharton/butterknife/8.4.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="a07818a1ecabdb149998823429cce555af4b9cba">
+        <dex dex="/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/pre-dexed/debug/com.jakewharton-butterknife-8.4.0_06b6f62705041dac2ffaef3a064c882c35455fbf.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="0ecb4b595fa0f0f8018a149ace3ea6525624f94e">
+        <dex dex="/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/pre-dexed/debug/com.android.support-support-compat-24.2.1_a011fa2983551ba306fe1d99f7f80d243a07c823.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
+        <dex dex="/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-24.2.1_2e1db77c6d593bed455fbbba2cfae40e2d33a35f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/erica/.gradle/caches/modules-2/files-2.1/com.jakewharton/butterknife-annotations/8.4.0/ea392375cf9ff59234a82e7928a204215ccc98cd/butterknife-annotations-8.4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="ea392375cf9ff59234a82e7928a204215ccc98cd">
+        <dex dex="/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/pre-dexed/debug/butterknife-annotations-8.4.0_f8518d95280f6407de2344b7e95b5b1518a4fa60.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
+        <dex dex="/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-utils-24.2.1_c322f7450d7b46579cb1a3fe4af8a6700dddcb9b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
+        <dex dex="/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_388cd8d59cd7004e9545e0eb7dc7282e200640b6.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/9.6.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="62ff84124b89177abc0c27f3e38c9732f2d41617">
+        <dex dex="/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-maps-9.6.1_42aae79e8137e568f437d788d942b66040b1b4ce.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
+        <dex dex="/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_d30ee7d2a75c32c2fe6e1433f9bd3788ac059fcf.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
+        <dex dex="/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_2883cb3f1f078ddd01de5385a307e606f0e0900a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-location/9.6.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="79f521967ad7f49b34748db89df02852c2b2f87b">
+        <dex dex="/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-location-9.6.1_d4d5a809fd8becf97427c4f4de41d525cdb43eef.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
+        <dex dex="/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-ui-24.2.1_34e4eb9df9bd9ad0453a7c54cf687aea75c9a6e5.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="7521486d9bfd2cd9e756e0cf75ed7d97f2ce2d3b">
+        <dex dex="/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/pre-dexed/debug/com.android.support-recyclerview-v7-24.2.1_3a21e70f63776ca2c5da387a9c5494ecc46dc114.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
+        <dex dex="/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_8f68a3a2c89c1a9920eda947eacced3442b69052.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
+        <dex dex="/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/pre-dexed/debug/com.android.support-support-fragment-24.2.1_c18c95d761dc6636337e4c2f36c0f7b7d713932a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-24.2.1_7dab1aa48f9689faa3c90c60aefbaac0c2dee55d.jar" />
+    </item>
+
+</items>
