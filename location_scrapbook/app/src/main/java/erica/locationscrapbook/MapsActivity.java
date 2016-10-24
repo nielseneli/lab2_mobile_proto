@@ -67,6 +67,23 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+        
+        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this,
+                android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+
+            Toast.makeText(MapsActivity.this, "We need permission to access your location!", Toast.LENGTH_SHORT).show();
+
+            int permissionCheck = 0;
+
+            ActivityCompat.requestPermissions(MapsActivity.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION,
+                    Manifest.permission.ACCESS_COARSE_LOCATION}, permissionCheck);
+
+            return;
+
+        } else {
+            mMap.setMyLocationEnabled(true);
+        }
 
         service = new DBService(this);
         geoCoder = new Geocoder(this);
