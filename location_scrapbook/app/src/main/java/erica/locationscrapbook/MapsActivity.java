@@ -6,7 +6,6 @@ import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
-import android.nfc.Tag;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
@@ -34,7 +33,6 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -52,7 +50,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private double mLatitudeText;
     private double mLongitudeText;
     private Geocoder geoCoder;
-    private List<Address> addresses = null;
     private DBService service;
 
 
@@ -108,7 +105,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
                 int permissionCheck = 0;
 
-                ActivityCompat.requestPermissions(MapsActivity.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, permissionCheck);
+                ActivityCompat.requestPermissions(MapsActivity.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION,
+                        Manifest.permission.ACCESS_COARSE_LOCATION}, permissionCheck);
 
                 return;
 
@@ -155,16 +153,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             mLatitudeText = mLastLocation.getLatitude();
             mLongitudeText = mLastLocation.getLongitude();
         }
-
-
+        
         final LatLng current_location = new LatLng(mLatitudeText, mLongitudeText);
-
 
         // add button onClickListener
         addCurrent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 // make an alert dialog
                 AlertDialog.Builder input = new AlertDialog.Builder(MapsActivity.this);
                 input.setTitle(R.string.new_location_dialog_title);
@@ -202,8 +197,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                                 if (geoResults.size()>0) {
                                     Address addr = geoResults.get(0);
                                     LatLng past_location = new LatLng(addr.getLatitude(), addr.getLongitude());
-
-                                    mMap.addMarker(new MarkerOptions().position(past_location).title("Is this the right location?").snippet("past"));
 
                                     Marker pastLoc = mMap.addMarker(new MarkerOptions().position(past_location).title("Is this the right location?").snippet("past"));
                                     service.addLoc(pastLoc);
@@ -259,7 +252,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         marker.setTitle(title.getText().toString());
                         marker.setSnippet(description.getText().toString());
                         marker.hideInfoWindow();
+
                         service.updateLoc(marker);
+
                     }
                 });
 
@@ -273,8 +268,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
                 AlertDialog userInput = input.create();
                 userInput.show();
-
-
             }
         });
 
