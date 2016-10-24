@@ -44,35 +44,38 @@ import butterknife.ButterKnife;
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener, LocationListener {
 
+    // these things exist, we're gonna use them
     private GoogleMap mMap;
     private GoogleApiClient mGoogleApiClient;
     private LocationRequest mLocationRequest;
     private Location mLastLocation;
-    private String locLat;
-    private String locLon;
-    private Marker marker;
-    private Marker past_marker;
-
     private double mLatitudeText;
     private double mLongitudeText;
     private Geocoder geoCoder;
     private List<Address> addresses = null;
-
-    private String TAG = "asdf"; // "MapsActivity.java"
-
     private DBService service;
 
+
+    // Debugging tag
+    private String TAG = "MapsActivity.java";
+
+    // Butterknifing
     @BindView(R.id.addCurrent) Button addCurrent;
+    ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        // invoke constructor, set view, butterknife
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
         ButterKnife.bind(MapsActivity.this);
+
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
         service = new DBService(this);
         geoCoder = new Geocoder(this);
 
@@ -84,12 +87,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .build();
     }
 
-
     /**
      * Manipulates the map once available.
      * This callback is triggered when the map is ready to be used.
-     * This is where we can add markers or lines, add listeners or move the camera. In this case,
-     * we just add a marker near Sydney, Australia.
      * If Google Play services is not installed on the device, the user will be prompted to install
      * it inside the SupportMapFragment. This method will only be triggered once the user has
      * installed Google Play services and returned to the app.
@@ -111,6 +111,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 ActivityCompat.requestPermissions(MapsActivity.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, permissionCheck);
 
                 return;
+
             } else {
                 mMap.setMyLocationEnabled(true);
             }
@@ -130,7 +131,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mLocationRequest.setFastestInterval(5000);
         mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
 
-
+        // tell me if i can't access location
         if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED) {
             Log.d(TAG, "permission not granted");
@@ -159,12 +160,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         final LatLng current_location = new LatLng(mLatitudeText, mLongitudeText);
 
 
+        // add button onClickListener
         addCurrent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
+                // make an alert dialog
                 AlertDialog.Builder input = new AlertDialog.Builder(MapsActivity.this);
-                input.setTitle("Input");
+                input.setTitle(R.string.new_location_dialog_title);
                 input.setCancelable(false);
 
                 LinearLayout layout = new LinearLayout(MapsActivity.this);
@@ -177,15 +180,17 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 layout.addView(location);
 
                 final CheckBox useCurrent = new CheckBox(MapsActivity.this);
-                useCurrent.setText("Use Current Location");
+                useCurrent.setText("Use current location");
                 layout.addView(useCurrent);
 
                 input.setView(layout);
 
-
+                // when they say yes
                 input.setPositiveButton("Done", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         if (useCurrent.isChecked()) {
+                            mMap.addMarker(new MarkerOptions().position(current_location).title("Is this your current location?").snippet("current"));
+
                             Marker currentLoc = mMap.addMarker(new MarkerOptions().position(current_location).title("Is this your current location?").snippet("current"));
                             service.addLoc(currentLoc);
                         } else {
@@ -193,13 +198,16 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                                 List<Address> geoResults = geoCoder.getFromLocationName(location.getText().toString(), 1);
                                 while (geoResults.size()==0) {
                                     geoResults = geoCoder.getFromLocationName(location.getText().toString(), 1);
-
                                 }
                                 if (geoResults.size()>0) {
                                     Address addr = geoResults.get(0);
                                     LatLng past_location = new LatLng(addr.getLatitude(), addr.getLongitude());
+
+                                    mMap.addMarker(new MarkerOptions().position(past_location).title("Is this the right location?").snippet("past"));
+
                                     Marker pastLoc = mMap.addMarker(new MarkerOptions().position(past_location).title("Is this the right location?").snippet("past"));
                                     service.addLoc(pastLoc);
+
                                 }
                             } catch (Exception e) {
                                 System.out.print(e.getMessage());
@@ -208,6 +216,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     }
                 });
 
+                // when they don't want to
                 input.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
@@ -221,8 +230,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             }
         });
 
-
-
+        // when you click on the red drop
         mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
             @Override
             public void onInfoWindowClick(final Marker marker) {
@@ -245,7 +253,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
                 input.setView(layout);
 
-
+                // when they're satisfied with what they've done
                 input.setPositiveButton("Done", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         marker.setTitle(title.getText().toString());
@@ -255,6 +263,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     }
                 });
 
+                // when they want to take everything away
                 input.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
