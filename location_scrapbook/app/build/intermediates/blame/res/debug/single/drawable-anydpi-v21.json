@@ -1,5 +1,9 @@
 [
     {
+        "merged": "/home/lnielsen/lab2_mobile_proto/location_scrapbook/app/build/intermediates/res/merged/debug/drawable-anydpi-v21/ic_android_black_24dp.xml",
+        "source": "/home/lnielsen/lab2_mobile_proto/location_scrapbook/app/build/generated/res/pngs/debug/drawable-anydpi-v21/ic_android_black_24dp.xml"
+    },
+    {
         "merged": "/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/res/merged/debug/drawable-anydpi-v21/ic_android_black_24dp.xml",
         "source": "/home/erica/lab2_mobile_proto/location_scrapbook/app/build/generated/res/pngs/debug/drawable-anydpi-v21/ic_android_black_24dp.xml"
     }

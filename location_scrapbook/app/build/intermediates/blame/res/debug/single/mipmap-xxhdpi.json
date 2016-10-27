@@ -1,5 +1,9 @@
 [
     {
+        "merged": "/home/lnielsen/lab2_mobile_proto/location_scrapbook/app/build/intermediates/res/merged/debug/mipmap-xxhdpi/ic_launcher.png",
+        "source": "/home/lnielsen/lab2_mobile_proto/location_scrapbook/app/src/main/res/mipmap-xxhdpi/ic_launcher.png"
+    },
+    {
         "merged": "/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/res/merged/debug/mipmap-xxhdpi/ic_launcher.png",
         "source": "/home/erica/lab2_mobile_proto/location_scrapbook/app/src/main/res/mipmap-xxhdpi/ic_launcher.png"
     }

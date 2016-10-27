@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "651269971598",
+    "project_id": "stable-sylph-146820"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:651269971598:android:82c5cb46502bb731",
+        "android_client_info": {
+          "package_name": "erica.locationscrapbook"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "651269971598-19as9di6caggcfrlp1jiinkcgnncnghk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "erica.locationscrapbook",
+            "certificate_hash": "58E063BEF3C51AEE10A784A02661298A9A43188E"
+          }
+        },
+        {
+          "client_id": "651269971598-9mkelucc0h7i2ov5kk06e7m1rei6q26g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBBHhoXBD8IT8Mln_nRJ444kExcpBqeqT0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

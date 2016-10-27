@@ -9,6 +9,7 @@ package erica.locationscrapbook;
 
 public final class Manifest {
     public static final class permission {
+        public static final String C2D_MESSAGE="erica.locationscrapbook.permission.C2D_MESSAGE";
         /** 
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
          Google Maps Android API v2, but you must specify either coarse or fine

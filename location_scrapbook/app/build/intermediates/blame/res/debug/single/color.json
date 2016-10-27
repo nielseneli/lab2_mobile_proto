@@ -1,35 +1,119 @@
 [
     {
-        "merged": "/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/res/merged/debug/color/abc_primary_text_disable_only_material_light.xml",
-        "source": "/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/color/abc_primary_text_disable_only_material_light.xml"
-    },
-    {
         "merged": "/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/res/merged/debug/color/switch_thumb_material_dark.xml",
         "source": "/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/color/switch_thumb_material_dark.xml"
     },
     {
-        "merged": "/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/res/merged/debug/color/abc_tint_switch_track.xml",
-        "source": "/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/color/abc_tint_switch_track.xml"
+        "merged": "/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/res/merged/debug/color/abc_primary_text_disable_only_material_light.xml",
+        "source": "/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/color/abc_primary_text_disable_only_material_light.xml"
     },
     {
-        "merged": "/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/res/merged/debug/color/common_google_signin_btn_text_dark.xml",
-        "source": "/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/res/color/common_google_signin_btn_text_dark.xml"
+        "merged": "/home/lnielsen/lab2_mobile_proto/location_scrapbook/app/build/intermediates/res/merged/debug/color/abc_secondary_text_material_dark.xml",
+        "source": "/home/lnielsen/lab2_mobile_proto/location_scrapbook/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/color/abc_secondary_text_material_dark.xml"
     },
     {
-        "merged": "/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/res/merged/debug/color/abc_tint_switch_thumb.xml",
-        "source": "/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/color/abc_tint_switch_thumb.xml"
+        "merged": "/home/lnielsen/lab2_mobile_proto/location_scrapbook/app/build/intermediates/res/merged/debug/color/abc_primary_text_disable_only_material_light.xml",
+        "source": "/home/lnielsen/lab2_mobile_proto/location_scrapbook/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/color/abc_primary_text_disable_only_material_light.xml"
     },
     {
         "merged": "/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/res/merged/debug/color/abc_tint_default.xml",
         "source": "/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/color/abc_tint_default.xml"
     },
     {
+        "merged": "/home/lnielsen/lab2_mobile_proto/location_scrapbook/app/build/intermediates/res/merged/debug/color/abc_secondary_text_material_light.xml",
+        "source": "/home/lnielsen/lab2_mobile_proto/location_scrapbook/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/color/abc_secondary_text_material_light.xml"
+    },
+    {
+        "merged": "/home/lnielsen/lab2_mobile_proto/location_scrapbook/app/build/intermediates/res/merged/debug/color/common_google_signin_btn_text_dark.xml",
+        "source": "/home/lnielsen/lab2_mobile_proto/location_scrapbook/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.0.0/res/color/common_google_signin_btn_text_dark.xml"
+    },
+    {
+        "merged": "/home/lnielsen/lab2_mobile_proto/location_scrapbook/app/build/intermediates/res/merged/debug/color/abc_tint_seek_thumb.xml",
+        "source": "/home/lnielsen/lab2_mobile_proto/location_scrapbook/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/color/abc_tint_seek_thumb.xml"
+    },
+    {
+        "merged": "/home/lnielsen/lab2_mobile_proto/location_scrapbook/app/build/intermediates/res/merged/debug/color/abc_primary_text_material_dark.xml",
+        "source": "/home/lnielsen/lab2_mobile_proto/location_scrapbook/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/color/abc_primary_text_material_dark.xml"
+    },
+    {
+        "merged": "/home/lnielsen/lab2_mobile_proto/location_scrapbook/app/build/intermediates/res/merged/debug/color/abc_search_url_text.xml",
+        "source": "/home/lnielsen/lab2_mobile_proto/location_scrapbook/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/color/abc_search_url_text.xml"
+    },
+    {
+        "merged": "/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/res/merged/debug/color/abc_primary_text_disable_only_material_dark.xml",
+        "source": "/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/color/abc_primary_text_disable_only_material_dark.xml"
+    },
+    {
+        "merged": "/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/res/merged/debug/color/abc_tint_btn_checkable.xml",
+        "source": "/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/color/abc_tint_btn_checkable.xml"
+    },
+    {
+        "merged": "/home/lnielsen/lab2_mobile_proto/location_scrapbook/app/build/intermediates/res/merged/debug/color/switch_thumb_material_dark.xml",
+        "source": "/home/lnielsen/lab2_mobile_proto/location_scrapbook/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/color/switch_thumb_material_dark.xml"
+    },
+    {
+        "merged": "/home/lnielsen/lab2_mobile_proto/location_scrapbook/app/build/intermediates/res/merged/debug/color/abc_tint_btn_checkable.xml",
+        "source": "/home/lnielsen/lab2_mobile_proto/location_scrapbook/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/color/abc_tint_btn_checkable.xml"
+    },
+    {
+        "merged": "/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/res/merged/debug/color/abc_primary_text_material_light.xml",
+        "source": "/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/color/abc_primary_text_material_light.xml"
+    },
+    {
+        "merged": "/home/lnielsen/lab2_mobile_proto/location_scrapbook/app/build/intermediates/res/merged/debug/color/common_plus_signin_btn_text_light.xml",
+        "source": "/home/lnielsen/lab2_mobile_proto/location_scrapbook/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.0.0/res/color/common_plus_signin_btn_text_light.xml"
+    },
+    {
+        "merged": "/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/res/merged/debug/color/abc_primary_text_material_dark.xml",
+        "source": "/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/color/abc_primary_text_material_dark.xml"
+    },
+    {
+        "merged": "/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/res/merged/debug/color/abc_tint_switch_track.xml",
+        "source": "/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/color/abc_tint_switch_track.xml"
+    },
+    {
+        "merged": "/home/lnielsen/lab2_mobile_proto/location_scrapbook/app/build/intermediates/res/merged/debug/color/abc_primary_text_material_light.xml",
+        "source": "/home/lnielsen/lab2_mobile_proto/location_scrapbook/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/color/abc_primary_text_material_light.xml"
+    },
+    {
+        "merged": "/home/lnielsen/lab2_mobile_proto/location_scrapbook/app/build/intermediates/res/merged/debug/color/common_google_signin_btn_text_light.xml",
+        "source": "/home/lnielsen/lab2_mobile_proto/location_scrapbook/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.0.0/res/color/common_google_signin_btn_text_light.xml"
+    },
+    {
+        "merged": "/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/res/merged/debug/color/common_google_signin_btn_text_dark.xml",
+        "source": "/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/res/color/common_google_signin_btn_text_dark.xml"
+    },
+    {
+        "merged": "/home/lnielsen/lab2_mobile_proto/location_scrapbook/app/build/intermediates/res/merged/debug/color/abc_tint_switch_track.xml",
+        "source": "/home/lnielsen/lab2_mobile_proto/location_scrapbook/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/color/abc_tint_switch_track.xml"
+    },
+    {
+        "merged": "/home/lnielsen/lab2_mobile_proto/location_scrapbook/app/build/intermediates/res/merged/debug/color/abc_btn_colored_borderless_text_material.xml",
+        "source": "/home/lnielsen/lab2_mobile_proto/location_scrapbook/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/color/abc_btn_colored_borderless_text_material.xml"
+    },
+    {
+        "merged": "/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/res/merged/debug/color/abc_tint_switch_thumb.xml",
+        "source": "/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/color/abc_tint_switch_thumb.xml"
+    },
+    {
+        "merged": "/home/lnielsen/lab2_mobile_proto/location_scrapbook/app/build/intermediates/res/merged/debug/color/abc_tint_spinner.xml",
+        "source": "/home/lnielsen/lab2_mobile_proto/location_scrapbook/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/color/abc_tint_spinner.xml"
+    },
+    {
         "merged": "/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/res/merged/debug/color/abc_tint_spinner.xml",
         "source": "/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/color/abc_tint_spinner.xml"
     },
     {
+        "merged": "/home/lnielsen/lab2_mobile_proto/location_scrapbook/app/build/intermediates/res/merged/debug/color/abc_tint_switch_thumb.xml",
+        "source": "/home/lnielsen/lab2_mobile_proto/location_scrapbook/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/color/abc_tint_switch_thumb.xml"
+    },
+    {
         "merged": "/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/res/merged/debug/color/switch_thumb_material_light.xml",
         "source": "/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/color/switch_thumb_material_light.xml"
+    },
+    {
+        "merged": "/home/lnielsen/lab2_mobile_proto/location_scrapbook/app/build/intermediates/res/merged/debug/color/abc_tint_default.xml",
+        "source": "/home/lnielsen/lab2_mobile_proto/location_scrapbook/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/color/abc_tint_default.xml"
     },
     {
         "merged": "/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/res/merged/debug/color/abc_secondary_text_material_light.xml",
@@ -44,12 +128,16 @@
         "source": "/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/exploded-aar/com.android.support/design/24.2.1/res/color/design_tint_password_toggle.xml"
     },
     {
-        "merged": "/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/res/merged/debug/color/abc_primary_text_disable_only_material_dark.xml",
-        "source": "/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/color/abc_primary_text_disable_only_material_dark.xml"
+        "merged": "/home/lnielsen/lab2_mobile_proto/location_scrapbook/app/build/intermediates/res/merged/debug/color/design_error.xml",
+        "source": "/home/lnielsen/lab2_mobile_proto/location_scrapbook/app/build/intermediates/exploded-aar/com.android.support/design/24.2.1/res/color/design_error.xml"
     },
     {
-        "merged": "/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/res/merged/debug/color/abc_tint_btn_checkable.xml",
-        "source": "/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/color/abc_tint_btn_checkable.xml"
+        "merged": "/home/lnielsen/lab2_mobile_proto/location_scrapbook/app/build/intermediates/res/merged/debug/color/switch_thumb_material_light.xml",
+        "source": "/home/lnielsen/lab2_mobile_proto/location_scrapbook/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/color/switch_thumb_material_light.xml"
+    },
+    {
+        "merged": "/home/lnielsen/lab2_mobile_proto/location_scrapbook/app/build/intermediates/res/merged/debug/color/common_plus_signin_btn_text_dark.xml",
+        "source": "/home/lnielsen/lab2_mobile_proto/location_scrapbook/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.0.0/res/color/common_plus_signin_btn_text_dark.xml"
     },
     {
         "merged": "/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/res/merged/debug/color/abc_secondary_text_material_dark.xml",
@@ -64,12 +152,20 @@
         "source": "/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/color/abc_tint_seek_thumb.xml"
     },
     {
+        "merged": "/home/lnielsen/lab2_mobile_proto/location_scrapbook/app/build/intermediates/res/merged/debug/color/abc_primary_text_disable_only_material_dark.xml",
+        "source": "/home/lnielsen/lab2_mobile_proto/location_scrapbook/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/color/abc_primary_text_disable_only_material_dark.xml"
+    },
+    {
         "merged": "/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/res/merged/debug/color/abc_btn_colored_borderless_text_material.xml",
         "source": "/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/color/abc_btn_colored_borderless_text_material.xml"
     },
     {
-        "merged": "/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/res/merged/debug/color/abc_primary_text_material_light.xml",
-        "source": "/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/color/abc_primary_text_material_light.xml"
+        "merged": "/home/lnielsen/lab2_mobile_proto/location_scrapbook/app/build/intermediates/res/merged/debug/color/abc_tint_edittext.xml",
+        "source": "/home/lnielsen/lab2_mobile_proto/location_scrapbook/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/color/abc_tint_edittext.xml"
+    },
+    {
+        "merged": "/home/lnielsen/lab2_mobile_proto/location_scrapbook/app/build/intermediates/res/merged/debug/color/design_tint_password_toggle.xml",
+        "source": "/home/lnielsen/lab2_mobile_proto/location_scrapbook/app/build/intermediates/exploded-aar/com.android.support/design/24.2.1/res/color/design_tint_password_toggle.xml"
     },
     {
         "merged": "/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/res/merged/debug/color/design_error.xml",
@@ -78,9 +174,5 @@
     {
         "merged": "/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/res/merged/debug/color/abc_tint_edittext.xml",
         "source": "/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/color/abc_tint_edittext.xml"
-    },
-    {
-        "merged": "/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/res/merged/debug/color/abc_primary_text_material_dark.xml",
-        "source": "/home/erica/lab2_mobile_proto/location_scrapbook/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/res/color/abc_primary_text_material_dark.xml"
     }
 ]
