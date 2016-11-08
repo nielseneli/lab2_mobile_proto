@@ -161,7 +161,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
                 LinearLayout layout = new LinearLayout(MapsActivity.this);
                 layout.setOrientation(LinearLayout.VERTICAL);
-
+                    
+                // Variable name is a bit confusing. Should be clear this is an EditText
                 final EditText location = new EditText(MapsActivity.this);
                 location.setInputType(InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS);
 
@@ -174,7 +175,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
                 input.setView(layout);
 
-
+                // This is a really big block of code that should have some comments explaining what it does
                 input.setPositiveButton("Done", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         if (useCurrent.isChecked()) {
@@ -187,10 +188,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         } else {
                             try {
                                 List<Address> geoResults = geoCoder.getFromLocationName(location.getText().toString(), 1);
-                                while (geoResults.size()==0) {
+                                // This may be where the inifinite loop happens and the app hangs
+                                while (geoResults.size() == 0) {
                                     geoResults = geoCoder.getFromLocationName(location.getText().toString(), 1);
                                 }
-                                if (geoResults.size()>0) {
+                                if (geoResults.size() > 0) {
                                     Address addr = geoResults.get(0);
                                     LatLng past_location = new LatLng(addr.getLatitude(), addr.getLongitude());
 
