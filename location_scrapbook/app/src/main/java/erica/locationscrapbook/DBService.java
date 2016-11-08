@@ -13,7 +13,7 @@ import layout.LocationDbSchema;
 
 
 public class DBService {
-    LocationDbSchema db;
+    private LocationDbSchema db;
 
     public DBService(Context context) {
         db = new LocationDbSchema(context);
@@ -36,30 +36,22 @@ public class DBService {
     public void deleteLoc (Marker marker) {
         SQLiteDatabase sql = db.getWritableDatabase();
 
-        StringBuilder sb = new StringBuilder();
-        sb.append("delete from ");
-        sb.append(LocationDbSchema.TABLE_NAME);
-        sb.append(" where ");
-        sb.append(LocationDbSchema.LAT_TITLE);
-        sb.append("=");
-        sb.append(marker.getPosition().latitude);
-        sb.append(" and ");
-        sb.append(LocationDbSchema.LON_TITLE);
-        sb.append("=");
-        sb.append(marker.getPosition().longitude);
+        String sb = "delete from " +
+                LocationDbSchema.TABLE_NAME +
+                " where " +
+                LocationDbSchema.LAT_TITLE +
+                "=" +
+                marker.getPosition().latitude +
+                " and " +
+                LocationDbSchema.LON_TITLE +
+                "=" +
+                marker.getPosition().longitude;
 
-        Cursor c = sql.rawQuery(sb.toString(), null);
+        Cursor c = sql.rawQuery(sb, null);
 
         c.moveToFirst();
         c.close();
-//        SQLiteDatabase sql = db.getWritableDatabase();
-//        String selection = LocationDbSchema.ID_TITLE + " =?";
-//        String[] selectionArgs = {String.valueOf(marker.getId())};
-//        sql.delete(LocationDbSchema.TABLE_NAME, selection, selectionArgs);
-//        sql.close();
     }
-
-
 
     public ArrayList<Location> getAll() {
         ArrayList<Location> locList = new ArrayList<>();
@@ -80,8 +72,6 @@ public class DBService {
             Location locs = new Location(readID,readTitle,readSnippet,coord);
 
             locList.add(locs);
-
-
 
             c.moveToNext();
         }
