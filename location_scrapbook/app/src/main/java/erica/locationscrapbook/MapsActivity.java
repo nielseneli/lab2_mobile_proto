@@ -93,7 +93,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap = googleMap;
 
         if (mMap != null) {
-
             if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION)
                     != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this,
                     android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -104,9 +103,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
                 ActivityCompat.requestPermissions(MapsActivity.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION,
                         Manifest.permission.ACCESS_COARSE_LOCATION}, permissionCheck);
-
-                return;
-
             } else {
                 mMap.setMyLocationEnabled(true);
             }
@@ -141,7 +137,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 mMap.addMarker(new MarkerOptions().position(markerLocation.getLatLng())
                         .title(markerLocation.getName())
                         .snippet(markerLocation.getDescription()));
-
             }
         }
 
@@ -166,7 +161,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
                 LinearLayout layout = new LinearLayout(MapsActivity.this);
                 layout.setOrientation(LinearLayout.VERTICAL);
-
+                    
+                // Variable name is a bit confusing. Should be clear this is an EditText
                 final EditText location = new EditText(MapsActivity.this);
                 location.setInputType(InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS);
 
@@ -174,25 +170,29 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 layout.addView(location);
 
                 final CheckBox useCurrent = new CheckBox(MapsActivity.this);
-                useCurrent.setText("Use Current Location");
+                useCurrent.setText(R.string.currentLocation);
                 layout.addView(useCurrent);
 
                 input.setView(layout);
 
-
+                // This is a really big block of code that should have some comments explaining what it does
                 input.setPositiveButton("Done", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         if (useCurrent.isChecked()) {
-                            Marker currentLoc = mMap.addMarker(new MarkerOptions().position(current_location).title("Current Location").snippet("Description"));
+                            MarkerOptions newMarkerOpts = new MarkerOptions()
+                                    .position(current_location)
+                                    .title("Current Location")
+                                    .snippet("Description");
+                            Marker currentLoc = mMap.addMarker(newMarkerOpts);
                             service.addLoc(currentLoc);
                         } else {
                             try {
                                 List<Address> geoResults = geoCoder.getFromLocationName(location.getText().toString(), 1);
-                                while (geoResults.size()==0) {
+                                // This may be where the inifinite loop happens and the app hangs
+                                while (geoResults.size() == 0) {
                                     geoResults = geoCoder.getFromLocationName(location.getText().toString(), 1);
-
                                 }
-                                if (geoResults.size()>0) {
+                                if (geoResults.size() > 0) {
                                     Address addr = geoResults.get(0);
                                     LatLng past_location = new LatLng(addr.getLatitude(), addr.getLongitude());
 
@@ -200,7 +200,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                                     service.addLoc(pastLoc);
                                 }
                             } catch (Exception e) {
-                                System.out.print(e.getMessage());
+                                Log.d(TAG, e.getMessage());
                             }
                         }
                     }
@@ -251,7 +251,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         marker.hideInfoWindow();
 
                         service.updateLoc(marker);
-
                     }
                 });
 
